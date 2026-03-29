@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignalPulse Arena - Crypto Trading Battle Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        deepSpace: '#0A0A0B',
+                        glass: 'rgba(255, 255, 255, 0.03)',
+                        glassBorder: 'rgba(255, 255, 255, 0.08)',
+                        electricBlue: '#00D4FF',
+                        sunsetCoral: '#FF6B6B',
+                        neonTeal: '#39FF14',
+                        purpleGlow: '#A855F7',
+                        gold: '#FFD700',
+                        obsidian: '#1a1a1b',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                        gaming: ['Orbitron', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-deepSpace text-white min-h-screen font-sans">
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="fixed inset-0 z-[100] bg-deepSpace flex items-center justify-center">
+        <div class="text-center">
+            <div class="w-20 h-20 mx-auto mb-6 relative">
+                <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-electricBlue to-purpleGlow animate-spin opacity-50"></div>
+                <div class="absolute inset-2 rounded-xl bg-deepSpace flex items-center justify-center">
+                    <i data-lucide="zap" class="w-10 h-10 text-electricBlue"></i>
+                </div>
+            </div>
+            <h1 class="text-2xl font-gaming font-bold gradient-text mb-2">SIGNALPULSE ARENA</h1>
+            <p class="text-gray-400 text-sm">Initializing Battle System...</p>
+            <div class="w-48 h-1 bg-glass rounded-full mt-4 overflow-hidden">
+                <div id="loading-bar" class="h-full bg-gradient-to-r from-electricBlue to-purpleGlow rounded-full transition-all duration-300" style="width: 0%"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar Navigation -->
+    <div id="sidebar-container"></div>
+
+    <!-- Main Content Container -->
+    <div class="lg:ml-72 min-h-screen flex flex-col">
+        <!-- Topbar -->
+        <div id="topbar-container"></div>
+        
+        <!-- Page Content -->
+        <div class="pt-20 px-0 flex-1">
+             <div id="page-content"></div>
+        </div>
+    </div>
+
+    <!-- Mobile Bottom Navigation -->
+    <div id="navbar-container"></div>
+
+    <!-- Event Modal Container -->
+    <div id="modal-container"></div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed top-20 right-4 z-[60] space-y-2"></div>
+
+    <script src="components/topbar.js"></script>
+    <script src="components/sidebar.js"></script>
+    <script src="components/navbar.js"></script>
+    <script src="exchangeLogic.js"></script>
+    <script src="pages/dashboard.js"></script>
+    <script src="pages/arena.js"></script>
+    <script src="pages/signals.js"></script>
+    <script src="pages/events.js"></script>
+    <script src="pages/season.js"></script>
+    <script src="pages/leaderboard.js"></script>
+    <script src="pages/profile.js"></script>
+    <script src="pages/quests.js"></script>
+    <script src="pages/lootboxes.js"></script>
+    <script src="pages/cards.js"></script>
+    <script src="pages/guilds.js"></script>
+    <script src="pages/intelligence.js"></script>
+    <script src="pages/analytics.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

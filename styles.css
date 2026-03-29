@@ -1,0 +1,797 @@
+/* ========================================
+   SIGNALPULSE ARENA - MASTER STYLES
+   Gaming-Themed Crypto Battle Platform
+   ======================================== */
+
+/* ========== BASE & RESET ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --neon-blue: #00D4FF;
+    --neon-purple: #A855F7;
+    --neon-pink: #FF6B6B;
+    --neon-green: #39FF14;
+    --neon-gold: #FFD700;
+    --deep-space: #0A0A0B;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* ========== SCROLLBAR ========== */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* ========== GRADIENT TEXT ========== */
+.gradient-text {
+    background: linear-gradient(135deg, #00D4FF, #A855F7, #FF6B6B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gradient-text-gold {
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ========== GLASSMORPHISM CARDS ========== */
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.12);
+    transform: translateY(-2px);
+    box-shadow:
+        0 12px 48px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* ========== LEGENDARY/EPIC CARDS ========== */
+.legendary-card {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 165, 0, 0.08));
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.legendary-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 215, 0, 0.15) 0%, transparent 50%);
+    animation: float 6s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.epic-card {
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(0, 212, 255, 0.08));
+    border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.rare-card {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.12), rgba(57, 255, 20, 0.05));
+    border: 1px solid rgba(0, 212, 255, 0.25);
+}
+
+/* ========== SQUISHY BUTTONS ========== */
+.squish-btn {
+    transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    user-select: none;
+}
+
+.squish-btn:active {
+    transform: scale(0.92);
+}
+
+.squish-btn:hover {
+    transform: scale(1.02);
+}
+
+/* ========== NEON GLOW EFFECTS ========== */
+.neon-glow-blue {
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.4), 0 0 40px rgba(0, 212, 255, 0.2);
+}
+
+.neon-glow-purple {
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.4), 0 0 40px rgba(168, 85, 247, 0.2);
+}
+
+.neon-glow-green {
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.4), 0 0 40px rgba(57, 255, 20, 0.2);
+}
+
+.neon-glow-gold {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4), 0 0 40px rgba(255, 215, 0, 0.2);
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+@keyframes pulse-glow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+@keyframes slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+@keyframes confetti {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+@keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+    animation: spin-slow 3s linear infinite;
+}
+
+@keyframes bounce-in {
+    0% { transform: scale(0); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.animate-slide-up {
+    animation: slide-up 0.5s ease-out forwards;
+}
+
+.animate-bounce-in {
+    animation: bounce-in 0.5s ease-out forwards;
+}
+
+.exchange-desktop-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+@media (min-width: 1024px) {
+    .exchange-desktop-grid {
+        grid-template-columns: 1.1fr 1.6fr 1fr;
+        align-items: start;
+    }
+}
+
+.exchange-gauge {
+    background: radial-gradient(circle at 50% 20%, rgba(0, 212, 255, 0.35), transparent 60%),
+        radial-gradient(circle at 50% 80%, rgba(168, 85, 247, 0.25), transparent 55%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.4));
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: inset 0 0 20px rgba(0, 212, 255, 0.2), 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.exchange-verify-pulse {
+    transform: scale(0.96);
+    box-shadow: 0 0 24px rgba(0, 212, 255, 0.4);
+}
+
+.exchange-verified-glow {
+    box-shadow: 0 0 40px rgba(57, 255, 20, 0.35), 0 0 12px rgba(255, 215, 0, 0.35);
+}
+
+.exchange-confetti {
+    position: absolute;
+    top: -10px;
+    width: 8px;
+    height: 12px;
+    border-radius: 2px;
+    animation: confetti 1.1s ease-in forwards;
+}
+
+.exchange-thumb-zone {
+    pointer-events: auto;
+}
+
+/* ========== NAV LINKS ========== */
+.nav-link {
+    color: rgba(255, 255, 255, 0.6);
+    position: relative;
+}
+
+.nav-link:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-link.active {
+    color: white;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(168, 85, 247, 0.15));
+    border: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+.mobile-nav-btn {
+    color: rgba(255, 255, 255, 0.5);
+    position: relative;
+}
+
+.mobile-nav-btn.active {
+    color: #00D4FF;
+}
+
+.mobile-nav-btn.active::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 3px;
+    background: linear-gradient(90deg, #00D4FF, #A855F7);
+    border-radius: 2px;
+}
+
+/* ========== PROGRESS BARS ========== */
+.progress-bar {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00D4FF, #A855F7);
+    border-radius: 4px;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progress-fill-gold {
+    background: linear-gradient(90deg, #FFD700, #FFA500);
+}
+
+.progress-fill-green {
+    background: linear-gradient(90deg, #39FF14, #00D4FF);
+}
+
+/* ========== XP LEVEL CIRCLE ========== */
+.level-circle {
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+
+.level-circle svg {
+    transform: rotate(-90deg);
+}
+
+.level-circle-bg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.1);
+    stroke-width: 8;
+}
+
+.level-circle-progress {
+    fill: none;
+    stroke: url(#gradient);
+    stroke-width: 8;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========== BATTLE ARENA STYLES ========== */
+.battle-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.battle-card::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #00D4FF, #A855F7, #FF6B6B, #39FF14);
+    background-size: 400% 400%;
+    border-radius: inherit;
+    z-index: -1;
+    animation: gradient-shift 3s ease infinite;
+    filter: blur(8px);
+    opacity: 0.3;
+}
+
+@keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* ========== VS BADGE ========== */
+.vs-badge {
+    background: linear-gradient(135deg, #FF6B6B, #FFD700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+}
+
+/* ========== ACHIEVEMENT BADGES ========== */
+.achievement-locked {
+    filter: grayscale(1) brightness(0.3);
+    opacity: 0.5;
+}
+
+.achievement-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ========== TOAST NOTIFICATIONS ========== */
+.toast {
+    background: rgba(10, 10, 11, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
+    animation: slide-in-right 0.3s ease-out;
+    max-width: 400px;
+}
+
+@keyframes slide-in-right {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.toast-success {
+    border-left: 4px solid #39FF14;
+}
+
+.toast-error {
+    border-left: 4px solid #FF6B6B;
+}
+
+.toast-warning {
+    border-left: 4px solid #FFD700;
+}
+
+.toast-info {
+    border-left: 4px solid #00D4FF;
+}
+
+/* ========== MODAL ========== */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    animation: fade-in 0.2s ease-out;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background: #0A0A0B;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: modal-scale 0.3s ease-out;
+}
+
+@keyframes modal-scale {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* ========== RARITY BADGES ========== */
+.rarity-common {
+    color: #9CA3AF;
+    border-color: rgba(156, 163, 175, 0.3);
+}
+
+.rarity-rare {
+    color: #00D4FF;
+    border-color: rgba(0, 212, 255, 0.3);
+}
+
+.rarity-epic {
+    color: #A855F7;
+    border-color: rgba(168, 85, 247, 0.3);
+}
+
+.rarity-legendary {
+    color: #FFD700;
+    border-color: rgba(255, 215, 0, 0.3);
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ========== EVENT CARDS ========== */
+.event-card-active {
+    border: 2px solid #39FF14;
+    box-shadow: 0 0 30px rgba(57, 255, 20, 0.2);
+}
+
+.event-card-coming-soon {
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    opacity: 0.7;
+}
+
+.event-card-ended {
+    opacity: 0.5;
+    filter: grayscale(1);
+}
+
+/* ========== COUNTDOWN TIMER ========== */
+.countdown-digit {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(168, 85, 247, 0.15));
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    border-radius: 8px;
+    padding: 12px 16px;
+    min-width: 60px;
+    text-align: center;
+}
+
+/* ========== PREDICTION SLIDER ========== */
+.prediction-slider {
+    position: relative;
+    height: 56px;
+    background: linear-gradient(90deg,
+        rgba(255, 107, 107, 0.1) 0%,
+        rgba(255, 165, 0, 0.1) 50%,
+        rgba(57, 255, 20, 0.1) 100%);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 28px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.prediction-slider:hover {
+    border-color: rgba(0, 212, 255, 0.3);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+}
+
+.prediction-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #FF6B6B 0%, #FFA500 50%, #39FF14 100%);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0.5;
+}
+
+.prediction-marker {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #0A0A0B, #1a1a1b);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* ========== LEADERBOARD RANKS ========== */
+.rank-1 {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 165, 0, 0.1));
+    border: 2px solid rgba(255, 215, 0, 0.4);
+}
+
+.rank-2 {
+    background: linear-gradient(135deg, rgba(192, 192, 192, 0.15), rgba(156, 163, 175, 0.08));
+    border: 2px solid rgba(192, 192, 192, 0.3);
+}
+
+.rank-3 {
+    background: linear-gradient(135deg, rgba(205, 127, 50, 0.15), rgba(139, 69, 19, 0.08));
+    border: 2px solid rgba(205, 127, 50, 0.3);
+}
+
+/* ========== STATS GRID ========== */
+.bento-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.bento-1x1 { grid-column: span 1; grid-row: span 1; }
+.bento-2x1 { grid-column: span 2; grid-row: span 1; }
+.bento-2x2 { grid-column: span 2; grid-row: span 2; }
+.bento-3x1 { grid-column: span 3; grid-row: span 1; }
+.bento-4x1 { grid-column: span 4; grid-row: span 1; }
+
+@media (max-width: 1024px) {
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .bento-3x1, .bento-4x1 {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 640px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+    .bento-2x1, .bento-2x2, .bento-3x1, .bento-4x1 {
+        grid-column: span 1;
+    }
+    .bento-2x2 {
+        grid-row: span 1;
+    }
+}
+
+/* ========== SEASON PASS ========== */
+.season-pass-tier {
+    position: relative;
+    padding-left: 20px;
+}
+
+.season-pass-tier::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, #00D4FF, #A855F7, #FF6B6B);
+    border-radius: 2px;
+}
+
+.season-pass-tier.free::before {
+    background: linear-gradient(180deg, #9CA3AF, #6B7280);
+}
+
+.season-pass-tier.premium::before {
+    background: linear-gradient(180deg, #FFD700, #FFA500);
+}
+
+.season-ticket-bubble {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(168, 85, 247, 0.2));
+    border: 1px solid rgba(0, 212, 255, 0.35);
+    box-shadow: 0 8px 24px rgba(0, 212, 255, 0.25);
+}
+
+.season-progress-3d {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(0, 0, 0, 0.35));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 2px 6px rgba(255, 255, 255, 0.12), inset 0 -6px 12px rgba(0, 0, 0, 0.35);
+}
+
+.season-progress-fill {
+    background: linear-gradient(90deg, #6B7280, #00D4FF);
+    box-shadow: 0 0 18px rgba(0, 212, 255, 0.35);
+}
+
+.season-radial {
+    background: conic-gradient(#00D4FF var(--season-progress), rgba(255, 255, 255, 0.08) 0);
+    box-shadow: 0 0 24px rgba(0, 212, 255, 0.3);
+}
+
+.season-track {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+.season-track::-webkit-scrollbar {
+    height: 6px;
+}
+
+.season-track::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+}
+
+.season-level {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.season-level.premium {
+    border-color: rgba(0, 212, 255, 0.4);
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(168, 85, 247, 0.12));
+    box-shadow: 0 0 18px rgba(0, 212, 255, 0.25);
+}
+
+.season-level.locked {
+    opacity: 0.6;
+}
+
+.season-milestone {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(0, 212, 255, 0.1));
+    border: 1px solid rgba(255, 215, 0, 0.4);
+}
+
+/* ========== QUEST CARDS ========== */
+.quest-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.quest-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #39FF14, #00D4FF);
+}
+
+.quest-card.daily::before {
+    background: linear-gradient(180deg, #00D4FF, #A855F7);
+}
+
+.quest-card.weekly::before {
+    background: linear-gradient(180deg, #FFD700, #FFA500);
+}
+
+.quest-card.special::before {
+    background: linear-gradient(180deg, #FF6B6B, #FFD700);
+}
+
+/* ========== REWARD POPUP ========== */
+.reward-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 200;
+    animation: bounce-in 0.5s ease-out;
+}
+
+.reward-popup-bg {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 199;
+}
+
+/* ========== SAFE AREA ========== */
+.safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 80px);
+}
+
+/* ========== UTILITY CLASSES ========== */
+.text-glow {
+    text-shadow: 0 0 20px currentColor;
+}
+
+.border-glow {
+    box-shadow: 0 0 20px currentColor;
+}
+
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+.shimmer {
+    position: relative;
+    overflow: hidden;
+}
+
+.shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    100% { left: 100%; }
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1024px) {
+    .desktop-only {
+        display: none !important;
+    }
+}
+
+@media (min-width: 1025px) {
+    .mobile-only {
+        display: none !important;
+    }
+}
+
+/* ========== PRINT STYLES ========== */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+}
